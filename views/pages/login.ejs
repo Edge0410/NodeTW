@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro" id="maintop">
+
+<head>
+    <title>Login - Club Sportiv Luza</title>
+    <%- include("../fragments/settings.ejs") %>
+</head>
+
+<body>
+    <%- include("../fragments/header.ejs")
+
+    %>
+    <main>
+        <div class="container-basic">
+            <br><h3 style="text-align: center">Login</h3><br>
+        <% if(!locals.utilizator && !locals.found) { %>
+        <form method="POST" id="formular-inscriere" action="/login">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" required><br>
+            <label for="parola">Parola:</label><br>
+            <input type="password" id="parola" name="parola" required><br>
+            <input type="submit" value="Trimite">
+        <% } else if(locals.utilizator) { %>
+            <p style="text-align: center; font-weight:bold;">Esti deja logat!</p>
+            <a href="../index" class="video-button" style="display: block; margin: auto; width: 200px;">Inapoi la pagina principala</a><br>
+        <% } else if(!locals.utilizator && locals.found == -1) { %>
+            <form method="POST" id="formular-inscriere" action="/login">
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" required><br>
+                <label for="parola">Parola:</label><br>
+                <input type="password" id="parola" name="parola" required><br>
+                <input type="submit" value="Trimite">
+            <script>window.onload = function(){alert('Email sau parola incorecta. Incercati din nou!')}</script>
+        <% } %>
+        </form>
+        </div>
+        <br>
+    </main>
+    <%- include("../fragments/footer.ejs")
+
+    %>
+</body>
+
+</html>

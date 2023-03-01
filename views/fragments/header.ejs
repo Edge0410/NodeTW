@@ -1,0 +1,40 @@
+<header>
+    <figure>
+        <picture id="logo">
+            <source srcset="resurse/imagini/imgmica.png" media="(max-width:700px)">
+            <source srcset="resurse/imagini/imgmedie.png" media="(max-width:1000px)">
+            <img src="resurse/imagini/imgmare.png" alt="Fotbal Baschet Tenis">
+        </picture>
+    </figure>
+    <h1 style="text-align: center; font-size: 2.5em;" id="titlu">Club sportiv Luza</h1>
+    <nav>
+        <input type="checkbox" id="navbutton">
+        <label for="navbutton"><img src="resurse/imagini/Hamburger_icon_alb.png" alt=""></label>
+        <ul class="navcont">
+            <li><a href="../index">Acasa</a></li>
+            <li class="dropdown">
+                <div class="dropbtn">Sporturi</div>
+                <ul class="dropdown-content">
+                    <li><a href="../index#tenis1">Tenis</a></li>
+                    <li><a href="../index#fotbal1">Fotbal</a></li>
+                    <li><a href="../index#baschet1">Baschet</a></li>
+                </ul>
+            </li>
+            <li><a href="../contact">Contact</a></li>
+            <% if(locals.utilizator) { %>
+            
+                <li><a>Buna ziua, <%- locals.utilizator.prenume %></a></li>    
+                <li><a href="../logout">Logout</a></li>
+            <% } else {%>
+            <li><a href="../login">Login</a></li>
+            <li><a href="../register">Inregistrare</a></li>
+            <% } %>
+        </ul>
+        <div id="selector-tema"><label style="color: black !important;">Tema intunecata</label>
+            <input type="radio" name="radio" value="dark" checked="checked">
+            <br>
+            <label style="color: black !important;">Tema luminoasa</label>
+            <input type="radio" name="radio" value="light">
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,446 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #041C32;
+    color: #DDDDDD;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin: 0;
+}
+
+header{
+    background-image: url('./imagini/Floor1_0.jpg');
+    background-size: 100%;
+    padding: 40px 10px;
+}
+
+#titlu
+{
+    color: black;
+    cursor: pointer;
+    display: block;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 30px;
+    transition: color 0.3s linear, transform 0.4s linear;
+}
+
+#titlu:hover
+{
+    color: red !important;
+    transform: scale(1.3);
+}
+
+.container-basic
+{
+    display: block;
+    width: 95%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+}
+
+.container
+{
+    display: grid;
+    width: 95%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+    color: #DDDDDD;
+    counter-reset: sectiune;
+    grid-template-areas:
+     "z-tenis z-baschet"
+    "z-fotbal z-baschet"
+    "z-fotbal z-info";
+    grid-template-columns: 2fr 1fr;
+    column-gap: 50px;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    row-gap: 10px;
+}
+
+.container>section>h2::before
+{
+    counter-increment: sectiune;
+    content: counter(sectiune)+". ";
+}
+
+#fotbal1
+{
+    grid-area: z-fotbal;
+}
+
+#baschet1
+{
+    grid-area: z-baschet;
+    position: relative;
+}
+
+#tenis1
+{
+    grid-area: z-tenis;
+}
+
+#info1
+{
+    grid-area: z-info
+}
+
+picture > img
+{
+    display: block;
+    margin: auto;
+}
+
+picture > img:hover
+{
+    animation: gudur 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.mingeb
+{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    right: 0px;
+    padding: 10px;   
+    z-index: 6;
+    cursor: pointer;
+}
+
+.panoub
+{
+    position: absolute;
+    width: 150px;
+    height: 130px;
+    top: 200px;
+    opacity: 0;
+    right: 80px;
+    padding: 10px;
+    z-index: 3;
+}
+
+.minge-clicked
+{
+    animation: ballthrow 3s linear forwards;
+}
+
+@keyframes ballthrow
+{
+    0%{transform:translateX(0px) translateY(0px);}
+    30%{transform:translateX(-65px) translateY(-50px);}
+    60%{transform:translateX(-130px) translateY(0px); opacity: 1;}
+    100%{transform:translateX(-130px) translateY(70px); opacity: 0;}
+}
+
+.panou-clicked
+{
+    animation: basketcome 4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes basketcome
+{
+    0%{opacity: 0; transform: translateY(0px);}
+    20%{opacity: 1; transform: translateY(-230px);}
+    80%{opacity: 1; transform: translateY(-230px);}
+    100%{opacity: 0; transform: translateY(0px);}
+}
+
+
+
+@keyframes gudur
+{
+    0%{transform: rotate(0deg) scale(1);}
+    33%{transform: rotate(45deg) scale(1.3);}
+    50%{transform: rotate(0deg) scale(1);}
+    66%{transform: rotate(-45deg) scale(1.3);}
+    100%{transform: rotate(0deg) scale(1);}
+}
+
+figure > figcaption
+{
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+}
+
+section ul{
+    list-style-type: none;
+    padding: 0;
+    font-weight: bold;
+}
+
+.backbutton
+{
+    display: block; 
+    margin: auto;
+    text-align: center;
+}
+
+address a{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.video-button
+{
+    display: inline-block;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgb(45, 45, 100);
+    font-weight: bold;
+}
+
+/* navbar */
+
+.navcont
+{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    justify-content: center;
+    list-style-type: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0;
+    flex-direction: row;
+}
+
+.navcont li
+{
+    background-color: rgb(45, 45, 100);
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.dropbtn
+{
+    padding: 20px;
+    text-align: center;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.navcont a
+{
+    display: block;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;  
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.navcont li:hover
+{
+    background-color: white;
+}
+
+.dropdown-content
+{
+    display: none;
+    position: absolute;
+    min-width: 140px;
+    list-style-type: none;
+    padding: 0; 
+    z-index: 3;
+}
+
+.dropdown-content a{
+    color: white;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.dropdown:hover .dropdown-content
+{
+    display: block;
+}
+
+.dropdown:hover .dropbtn
+{
+    color: black;
+}
+
+.navcont > li:hover > a
+{
+    color: black;
+}
+
+.dropdown-content > li:hover > a
+{
+    color: black;
+}
+
+#navbutton
+{
+    display: none;
+    padding: 20px;
+    font-size: 1em;
+    display: none;
+}
+
+label[for="navbutton"]
+{
+    display: none;
+}
+
+label[for="navbutton"] img
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#formular-inscriere
+{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+#formular-inscriere input, #formular-inscriere select
+{
+    padding: 5px;
+    margin: 5px;
+}
+
+@media only screen and (max-width:1000px)
+{
+    iframe
+    {
+        width: 350px;
+        height: 250px;
+    }
+}
+
+
+@media only screen and (max-width:600px)
+{
+    label[for="navbutton"]
+    {
+        display: block;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    #titlu
+    {
+        width: 250px;
+        margin-bottom: 15px;
+    }
+    .navcont
+    {
+        display: none;
+        overflow: auto;
+    }
+    #navbutton:checked~.navcont
+{
+    display: block;
+}
+    .dropdown-content
+    {
+        width: 100%;
+        position: static;
+    }
+    .container
+    {
+        display: block;
+        width: 100%;
+    }
+    iframe
+    {
+        width: 100%;
+    }
+    section h2
+    {
+        text-align: center;
+    }
+    .mingeb
+    {
+        top: -20px;
+    }
+}
+
+.plutitor
+{
+    display: flex;
+    margin: auto;
+    background-image: url("../resurse/imagini/football.png");
+    background-size: 100%;
+    position: fixed;
+    color: red;
+    font-size: 1.5em; 
+    font-weight: bold;
+    text-align: center;
+    top: 0;
+    width: 300px;
+    height: 300px;
+    vertical-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.plutitor > h3
+{
+    display: block;
+    margin: auto;
+}
+
+#selector-tema
+{
+    display: block;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+}
+
+#selector-tema > input
+{
+    margin: auto;
+}
+
+#selector-tema > label
+{
+    margin: auto;
+}
+
+.light-color
+{
+    color: black !important;
+}
+
+.light-background
+{
+    background-color: white !important;
+}
+
+footer{
+    display: block;
+    color: #DDDDDD;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: #041C32;
+}
+
+
+
